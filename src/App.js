@@ -4,6 +4,7 @@ import Cds from './Components/Cds';
 import Navbar from './Components/Navbar';
 import { useState } from 'react';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import Orders from './Components/Orders';
 
 function App() {
   const [cd,setCd] = useState([
@@ -44,7 +45,8 @@ function App() {
     <BrowserRouter className="App">
       <Navbar/>
       <Routes>
-      <Route path="" element={<Cds cds={cd} />}/>
+      <Route path="/" element={<Cds cds={cd} />}/>
+      <Route path="/orders" element={<Orders cds={cd} />}/>
       </Routes>
       
     </BrowserRouter>
