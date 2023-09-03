@@ -1,9 +1,15 @@
 import React from 'react'
+import OneCd from './OneCd';
 
-function Orders() {
+function Orders({cds}) {
   return (
-    <div>Orders</div>
-  )
-}
+    <div>
+      <div className="order-items">
+      {cds.map((cd) => (
+        <OneCd cd={cd} key={cd.id} inCart={0} />
+      ))}</div>
+    </div>
+  );
+};
 
 export default Orders

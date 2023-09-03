@@ -1,16 +1,17 @@
 import React from 'react'
 import {PiShoppingCartLight} from 'react-icons/pi';
+import {Link} from 'react-router-dom';
 function Navbar() {
   return (
     <div className='navbar'>
-      <a href="">Store</a>
-      <input type="text" />
+      <Link to="/">Store</Link>
+      <input type="text" className='searchBar' />
       
-      <a href="" className='order-items'>
+      <Link to="/orders" className='order-items'>
         <PiShoppingCartLight/>
         <p>Orders</p> 
           
-      </a>
+      </Link>
     </div>
   )
 }

@@ -63,3 +63,6 @@ buttons{
   border-radius: 3px;
   border-width: 1px;
 }
+.searchBax{
+  align-self: end;
+}
