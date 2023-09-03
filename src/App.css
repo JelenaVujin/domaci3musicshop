@@ -7,6 +7,7 @@
   font-size: large;
   border-bottom-style: solid;
   direction: row;
+  width: 100%;
 }
 .order-items{
   display: flex;
@@ -63,6 +64,13 @@ buttons{
   border-radius: 3px;
   border-width: 1px;
 }
-.searchBax{
-  align-self: end;
-}
+.searchBar {
+	display: flex;
+  
+	margin: 12px;
+	padding: 8px;
+	width: 200px;
+	font-size: 14px;
+	border-radius: 10px;
+	border: none;
+  }

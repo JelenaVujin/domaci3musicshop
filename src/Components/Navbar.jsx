@@ -5,13 +5,14 @@ function Navbar() {
   return (
     <div className='navbar'>
       <Link to="/">Store</Link>
-      <input type="text" className='searchBar' />
+     
       
       <Link to="/orders" className='order-items'>
         <PiShoppingCartLight/>
         <p>Orders</p> 
           
       </Link>
+      <input type="text" className='searchBar' />
     </div>
   )
 }

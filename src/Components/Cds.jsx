@@ -5,7 +5,7 @@ function Cds({cds,onAdd,onRemove}) {
   return (
     <div className='order-items'>
       {cds.map((cd) => (
-        <OneCd cd={cd} key={cd.id} onAdd={onAdd} inOrder={1} />
+        <OneCd cd={cd} key={cd.id} onAdd={onAdd} onRemove={onRemove} inOrder={1} />
       ))}
      
     </div>

@@ -13,8 +13,8 @@ function OneCd({cd,onAdd,inOrder,onRemove}) {
        </div>
       {inOrder=== 1 ? (
         <>
-       <button className='kupi'  onClick={() => onAdd(cd.title, cd.id)}><BsPlusLg/></button>
-       <button className='ponisti' onClick={()=>onRemove(cd.title,cd.id)}><BiMinus/></button>
+       <button className='kupi'  onClick={() => onAdd( cd.id)}><BsPlusLg/></button>
+       <button className='ponisti' onClick={()=>onRemove(cd.id)}><BiMinus/></button>
        </>
       ):(
         <h4>Količina: {cd.amount}</h4>
