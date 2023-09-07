@@ -74,3 +74,18 @@ buttons{
 	border-radius: 10px;
 	border: none;
   }
+  buttons{
+    display: flex;
+    justify-items: flex-end;
+  }
+  .btn {
+    background-color:black;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 3px;
+    border-radius: 3px;
+    border-width: 0px;
+  }
