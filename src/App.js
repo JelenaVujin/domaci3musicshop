@@ -2,14 +2,14 @@
 import './App.css';
 import Cds from './Components/Cds';
 import Navbar from './Components/Navbar';
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Orders from './Components/Orders';
+import Pagination from './Components/Pagination';
 
 function App() {
-  const[cdAmount,setCdAmount]=useState(0);
-  const[cdPrice,setCdPrice]=useState(0);
   const [orderCd, setOrderCd] = useState([]);
+
   const [cd,setCd] = useState([
     {
       id: 1,
@@ -44,6 +44,7 @@ function App() {
       amount: 0,
     },
   ]);
+ 
   function refreshCart() {
     let show = cd.filter((oneCd) => oneCd.amount > 0);
     setOrderCd (show);
@@ -51,13 +52,16 @@ function App() {
   
   function addToOrder( id) {
     setCdAmount(cdAmount + 1);
+    
     cd.forEach((cd) => {
       if (cd.id === id) {
         cd.amount++;
-       
-      }
+        }
     });
+    
     refreshCart();
+   
+    
   }
    function removeFromOrder( id) {
       setCdAmount(cdAmount - 1);
@@ -67,6 +71,16 @@ function App() {
         }
       });
   }
+  const[cdAmount,setCdAmount]=useState(0);
+  const[currentPage,setCurrentPage]=useState(1);
+  const [cdPerPage]=useState(3);
+  const [loading] = useState(false);
+  const indexOfLastProduct = currentPage * cdPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - cdPerPage;
+  const currentProducts = cd.slice(indexOfFirstProduct, indexOfLastProduct);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+
  
   
   
@@ -76,10 +90,13 @@ function App() {
     <BrowserRouter className="App">
       <Navbar/>
       <Routes>
-      <Route path="/" element={<Cds cds={cd} onAdd={addToOrder} onRemove={removeFromOrder} />}/>
-      <Route path="/orders" element={<Orders cds={orderCd}  />}/>
-      </Routes>
       
+      <Route path="/" element={<Cds cds={cd} onAdd={addToOrder} onRemove={removeFromOrder} />}/>
+     
+      <Route path="/orders" element={<Orders cds={orderCd}  />}/>
+      
+      </Routes>
+
     </BrowserRouter>
   );
 }
